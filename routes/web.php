@@ -6,5 +6,5 @@ use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RedisController;
 
-Route::get('/', [RedisController::class, 'index']);
-
+Route::get('/redis', [RedisController::class, 'redis']);
+Route::get('/mysql', [RedisController::class, 'mysql']);
