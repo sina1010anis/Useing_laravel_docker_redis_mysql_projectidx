@@ -14,7 +14,7 @@
     <body>
         <div id="app">
             <p>@{{version}}</p>
-            {{-- <test-page></test-page> --}}
+            <test-page></test-page>
         </div>
     </body>
             <script src="{{mix('js/app.js')}}" ></script>
