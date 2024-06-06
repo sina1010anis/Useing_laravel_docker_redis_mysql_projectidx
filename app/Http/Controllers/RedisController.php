@@ -21,21 +21,23 @@ class RedisController extends Controller
         Redis::executeRaw(['sadd' , 'car:4', 'Nisan', '55000$', '2019', 'JA']);
 
         Redis::executeRaw(['sadd' , 'car:5', 'Mazda', '58000$', '2017', 'JA']);
+
+        //Radis::executeRaw(['']);
     } 
     public function redis()
     {
-
-        // $this->sAddRedis();
-
-        // Redis::executeRaw(['flashall']);
-
-        // UserFactory::new()->count(500)->create();
-
-        // dd(Redis::executeRaw(['lpush', 'numners', '1', '2', '3', '4', '5']));
-
-        // Redis::executeRaw(['lpush', 'numners', '0']);
         
-        dd(Redis::executeRaw(['lrange', 'numners', '0', '9']));
+        for ($i = 1 ; $i <= 50 ; $i++) {
+
+            Redis::executRaw(['zadd', 'x:'.$i, 'titel-one']);
+
+            for ($j = 1 ; $j <= 10 ; $j++) {
+
+                Redis::executRaw(['zadd', 'x:'.$i, fake()->name()]);
+
+            }
+
+        }
 
     }
 
