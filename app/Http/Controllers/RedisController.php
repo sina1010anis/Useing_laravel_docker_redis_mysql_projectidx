@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Closure;
 use App\Models\Car;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Database\Factories\UserFactory;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redis;
 
 class RedisController extends Controller
 {
-    private function sAddRedis()
+    public function sAddRedis()
     {
         Redis::executeRaw(['sadd' , 'car:1', 'BMW X6', '98500$', '2019', 'GA']);
 
@@ -24,20 +26,45 @@ class RedisController extends Controller
 
         //Radis::executeRaw(['']);
     } 
+
+    private function execRedis (array $arr)
+    {
+
+        return Redis::executeRaw($arr);
+
+    }
+
+    private function remember (string $key, int $min, Closure $callback)
+    {
+
+        if ($this->execRedis(['exists', $key])) {
+
+            return $this->execRedis(['get', $key]);
+
+        } 
+
+        $this->execRedis(['setex', $key, $min, $val = $callback()]);
+
+        return $val;
+
+    }
+
     public function redis()
     {
-        
-        for ($i = 1 ; $i <= 50 ; $i++) {
 
-            Redis::executRaw(['zadd', 'x:'.$i, 'titel-one']);
+        // Cache in redis 
+        Cache::remember('users', 60, function () {
 
-            for ($j = 1 ; $j <= 10 ; $j++) {
+            return User::all();
 
-                Redis::executRaw(['zadd', 'x:'.$i, fake()->name()]);
+        });
 
-            }
 
-        }
+        // return json_decode($this->remember('users', 60, function () {
+
+        //     return User::all();
+
+        // }));
 
     }
 

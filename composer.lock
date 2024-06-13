@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "de322121d183ffe17d246bf6909bd362",
+    "content-hash": "9840d8f97c2fd6bd0c8c5ef33ebf27cb",
     "packages": [
         {
             "name": "brick/math",
@@ -5521,6 +5521,70 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/v2.2.7"
             },
             "time": "2023-12-08T13:03:43+00:00"
+        },
+        {
+            "name": "tomloprod/time-warden",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tomloprod/time-warden.git",
+                "reference": "c5e62ea1a710f7d31fcba3aca6ec12615822c386"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tomloprod/time-warden/zipball/c5e62ea1a710f7d31fcba3aca6ec12615822c386",
+                "reference": "c5e62ea1a710f7d31fcba3aca6ec12615822c386",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.2.0",
+                "symfony/console": "^7.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.15.2",
+                "pestphp/pest": "^2.34",
+                "pestphp/pest-plugin-type-coverage": "^2.8",
+                "rector/rector": "^1.0.4"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Support/TimeWardenAlias.php"
+                ],
+                "psr-4": {
+                    "Tomloprod\\TimeWarden\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tomás López",
+                    "email": "tomloprod@gmail.com"
+                }
+            ],
+            "description": "TimeWarden is a lightweight PHP library that enables you to monitor the processing time of tasks and task groups (useful during the development stage). Additionally, it allows you to set maximum execution times to tasks, empowering proactive actions when tasks exceed their planned duration.",
+            "keywords": [
+                "debugging",
+                "execution time",
+                "monitoring",
+                "performance",
+                "time-warden",
+                "tomloprod"
+            ],
+            "support": {
+                "issues": "https://github.com/tomloprod/time-warden/issues",
+                "source": "https://github.com/tomloprod/time-warden/tree/v1.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.com/paypalme/tomloprod",
+                    "type": "custom"
+                }
+            ],
+            "time": "2024-05-20T17:20:04+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
