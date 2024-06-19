@@ -53,12 +53,29 @@ class RedisController extends Controller
     {
 
         // Cache in redis 
-        Cache::remember('users', 60, function () {
+        // Cache::remember('users', 60, function () {
 
-            return User::all();
+        //     return User::all();
 
-        });
+        // });
 
+        // set has for function php ( start )
+
+            // $data = ['name' => 'sina', 'age' => 25];
+
+            // Redis::hmset('user:test', $data);
+
+            // dd(Redis::hgetall('user:test'));
+
+        // set has for function php ( end )
+
+        // cache in php ( start )
+
+            Cache::put('foo', 'bar', 10);
+
+            dd(Cache::get('laravel_database_bar'));
+            
+        // cache in php ( end )
 
         // return json_decode($this->remember('users', 60, function () {
 
