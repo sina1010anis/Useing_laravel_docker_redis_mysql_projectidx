@@ -51,6 +51,13 @@ class RedisController extends Controller
 
     public function redis()
     {
+        $val_redis = Redis::zrevrange('product:1', 0, -1);
+
+        return collect($val_redis)->map(function ($query){
+
+            return $query;
+
+        });
 
         // Cache in redis 
         // Cache::remember('users', 60, function () {
@@ -71,9 +78,9 @@ class RedisController extends Controller
 
         // cache in php ( start )
 
-            Cache::put('foo', 'bar', 10);
+            // Cache::put('foo', 'bar', 10);
 
-            dd(Cache::get('laravel_database_bar'));
+            // dd(Cache::get('laravel_database_bar'));
             
         // cache in php ( end )
 
